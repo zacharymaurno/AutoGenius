@@ -1,4 +1,5 @@
 #include "Car.h"
+#include <iostream>
 
 Car::Car(string make, string model,string frame, int year, int mileage, string color, int price) {
     this->make = make;
@@ -42,7 +43,7 @@ void Car::getTotalScore(string preferredFrame, string preferredColor, int maxPri
         totalScore += 2.5;
     }
     totalScore /= 4.0;
-
+    cout << make << " " << model << " " << year << " " << mileage << " " << color << " " << price << " " << totalScore << endl;
 }
 
 void Car::bruteForce(){

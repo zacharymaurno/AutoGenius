@@ -1,6 +1,5 @@
-Make, Model, Mileage, Year, Color, Price
-Ford Impala,Convertible,83358,2019,Red,12726
-Subaru Sentra,Station Wagon,9190,2019,Silver,20877
-Volvo Tucson,Sedan,25510,2013,White,14487
-Infinity Traverse,Convertible,76588,2018,Black,22402
-Subaru Malibu,Coupe,81815,2021,Gray,14631
+Ford,Impala,Convertible,83358,2019,Red,12726
+Subaru,Sentra,Station Wagon,9190,2019,Silver,20877
+Volvo,Tucson,Sedan,25510,2013,White,14487
+Infinity,Traverse,Convertible,76588,2018,Black,22402
+Subaru,Malibu,Coupe,81815,2021,Gray,14631

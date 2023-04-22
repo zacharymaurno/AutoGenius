@@ -10,7 +10,6 @@ map<string, vector<Car>> cars;
 void parseFile(string fileName);
 
 int main() {
-    parseFile("cars_data.txt");
     int price;
     string frame;
     string color;
@@ -21,11 +20,13 @@ int main() {
     cout << "Please enter your desired color";
     cin >> color;
 
+    parseFile("car_data2.txt", price, frame, color);
+
 
     return 0;
 }
 
-void parseFile(string fileName) {
+void parseFile(string fileName, int priceUser, string frameUser, string colorUser) {
     string line;
     ifstream file(fileName);
 
@@ -42,6 +43,7 @@ void parseFile(string fileName) {
         getline(ss, price, ',');
 
         Car tempCar(make, model, frame, stoi(year), stoi(mileage), color, stoi(price));
+        tempCar.getTotalScore(frameUser, colorUser, priceUser);
         cars[make].push_back(tempCar);
     }
 
