@@ -4,10 +4,11 @@
 #include <sstream>
 #include <map>
 #include "Car.h"
+#include "MaxHeap.h"
 
 
 map<string, vector<Car>> cars;
-void parseFile(string fileName);
+void parseFile(string fileName, int priceUser, string frameUser, string colorUser);
 
 int main() {
     int price;
@@ -17,10 +18,10 @@ int main() {
     cin >> price;
     cout << "Please enter your desired frame: ";
     cin >> frame;
-    cout << "Please enter your desired color";
+    cout << "Please enter your desired color: ";
     cin >> color;
 
-    parseFile("car_data2.txt", price, frame, color);
+    parseFile("car_data.txt", price, frame, color);
 
 
     return 0;
@@ -29,6 +30,7 @@ int main() {
 void parseFile(string fileName, int priceUser, string frameUser, string colorUser) {
     string line;
     ifstream file(fileName);
+    MaxHeap heap;
 
     while (getline(file, line)) { // Read each line of the file
         string make, model, mileage, year, color, price, frame;
@@ -44,7 +46,10 @@ void parseFile(string fileName, int priceUser, string frameUser, string colorUse
 
         Car tempCar(make, model, frame, stoi(year), stoi(mileage), color, stoi(price));
         tempCar.getTotalScore(frameUser, colorUser, priceUser);
+        heap.insert(tempCar);
         cars[make].push_back(tempCar);
     }
+
+    heap.print();
 
 }
