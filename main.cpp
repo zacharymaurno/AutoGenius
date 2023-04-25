@@ -20,6 +20,7 @@ int main() {
     cin >> frame;
     cout << "Please enter your desired color: ";
     cin >> color;
+    cout << endl;
 
     parseFile("car_data.txt", price, frame, color);
 

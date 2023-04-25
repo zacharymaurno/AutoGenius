@@ -25,6 +25,7 @@ void MaxHeap::insert(Car car) {
 }
 
 void MaxHeap::print() {
+    cout << "Max Heap:" << endl;
     cout << "Based on your preferences these are our top recommendations: " << endl;
     for(int i = 0; i < 5; i++){
         cout << (i+1) << ". ";
