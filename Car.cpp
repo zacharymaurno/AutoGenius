@@ -21,15 +21,18 @@ void Car::getTotalScore(string preferredFrame, string preferredColor, int maxPri
         totalScore+= 10;
     }
 
-    if(price < maxPrice){
+    if(price < maxPrice && price - maxPrice <= 1000){
         totalScore+= 10;
     }
-    else if (price < 15000){
+
+    else if (price - maxPrice == 2500){
         totalScore += 7.5;
     }
-    else if(price < 20000){
+
+    else if(price - maxPrice == 5000){
         totalScore += 5;
     }
+
     else{
         totalScore += 2.5;
     }
@@ -47,29 +50,23 @@ void Car::getTotalScore(string preferredFrame, string preferredColor, int maxPri
         totalScore += 2.5;
     }
 
-    if (mileage < 15000){
+    if (mileage < 25000){
         totalScore += 10;
     }
-    else if (mileage < 40000){
+
+    else if (mileage < 50000){
         totalScore += 7.5;
     }
-    else if (mileage < 650000){
+
+    else if (mileage < 750000){
         totalScore += 5;
     }
+
     else{
         totalScore += 2.5;
     }
 
     totalScore /= 5.0;
-    //cout << make << " " << model << " " << year << " " << mileage << " " << color << " " << price << " " << totalScore << endl;
-}
-
-void Car::bruteForce(){
-
-}
-
-void Car::dijkstra() {
-
 }
 
 void Car::PrintInfo() {
