@@ -8,7 +8,6 @@
 #include "b-tree.h"
 #include <iterator>
 
-
 map<string, vector<Car>> cars;
 void parseFile(string fileName, int priceUser, string frameUser, string colorUser);
 
@@ -29,24 +28,25 @@ int main() {
     return 0;
 }
 
-void getTopGraph(){
+void printMap(string frame){
     vector<Car> bestCars;
-    map<string, vector<Car>>::iterator itr;
+    //map<string, vector<Car>>::iterator itr;
+    for(int i = 0; i < cars[frame].size(); i++) {
+        if (bestCars.size() < 3) {
+            bestCars.push_back(cars[frame].at(i));
+        }
+        else if (cars[frame].at(i).totalScore >= bestCars[0].totalScore){
+            bestCars[2] = bestCars[1];
+            bestCars[1] = bestCars[0];
+            bestCars[0] = cars[frame].at(i);
 
-    for(itr = cars.begin(); itr != cars.end(); itr++){
-        for(int i = 0; i < itr->second.size(); i++) {
-            if (bestCars.size() < 3) {
-                bestCars.push_back(itr->second[i]);
-            }
-            else if (itr->second[i].totalScore > bestCars[0].totalScore){
-                bestCars[0] = itr->second[i];
-            }
-            else if (itr->second[i].totalScore > bestCars[1].totalScore){
-                bestCars[1] = itr->second[i];
-            }
-            else if (itr->second[i].totalScore > bestCars[2].totalScore){
-                bestCars[2] = itr->second[i];
-            }
+        }
+        else if (cars[frame].at(i).totalScore >= bestCars[1].totalScore){
+            bestCars[2] = bestCars[1];
+            bestCars[1] = cars[frame].at(i);
+        }
+        else if (cars[frame].at(i).totalScore >= bestCars[2].totalScore){
+            bestCars[2] = cars[frame].at(i);
         }
     }
     cout << "Graph:" << endl;
@@ -78,10 +78,10 @@ void parseFile(string fileName, int priceUser, string frameUser, string colorUse
         Car tempCar(make, model, frame, stoi(year), stoi(mileage), color, stoi(price));
         tempCar.getTotalScore(frameUser, colorUser, priceUser);
         heap.insert(tempCar);
-        cars[make].push_back(tempCar);
+        cars[frame].push_back(tempCar);
     }
     cout << "Based on your preferences these are our top recommendations: " << endl;
-    getTopGraph();
+    printMap(frameUser);
     heap.print();
 
 }

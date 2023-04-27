@@ -6,14 +6,9 @@
 class MaxHeap{
     vector<Car> cars;
 public:
-    //MaxHeap();
     void insert(Car car);
     void print();
 };
-/*
-MaxHeap::MaxHeap() {
-    cars.clear();
-}*/
 
 void MaxHeap::insert(Car car) {
     cars.push_back(car);
