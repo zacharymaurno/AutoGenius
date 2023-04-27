@@ -5,8 +5,6 @@
 #include <map>
 #include "Car.h"
 #include "MaxHeap.h"
-#include "b-tree.h"
-#include <iterator>
 
 map<string, vector<Car>> cars;
 void parseFile(string fileName, int priceUser, string frameUser, string colorUser);
@@ -23,6 +21,14 @@ int main() {
     cin >> color;
     cout << endl;
 
+    cout << "        _______\n"
+            "       //  ||\\ \\\n"
+            " _____//___||_\\ \\___\n"
+            " )  _          _    \\\n"
+            " |_/ \\________/ \\___|\n"
+            "___\\_/________\\_/______" << endl;
+    cout << endl;
+
     parseFile("car_data.txt", price, frame, color);
 
     return 0;
@@ -30,7 +36,7 @@ int main() {
 
 void printMap(string frame){
     vector<Car> bestCars;
-    //map<string, vector<Car>>::iterator itr;
+
     for(int i = 0; i < cars[frame].size(); i++) {
         if (bestCars.size() < 3) {
             bestCars.push_back(cars[frame].at(i));
@@ -61,7 +67,6 @@ void parseFile(string fileName, int priceUser, string frameUser, string colorUse
     string line;
     ifstream file(fileName);
     MaxHeap heap;
-    BTree tree;
 
     while (getline(file, line)) { // Read each line of the file
         string make, model, mileage, year, color, price, frame;
