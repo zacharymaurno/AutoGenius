@@ -13,12 +13,8 @@ int main() {
     int price;
     string frame;
     string color;
-    cout << "Please enter your maximum price: ";
-    cin >> price;
-    cout << "Please enter your desired frame: ";
-    cin >> frame;
-    cout << "Please enter your desired color: ";
-    cin >> color;
+    cout << "Welcome to AutoGenius, the best spot to find a car" << endl;
+    cout << "Created by Zach Maurno, Jose Varela and Randol Recio" << endl;
     cout << endl;
 
     cout << "        _______\n"
@@ -27,6 +23,14 @@ int main() {
             " )  _          _    \\\n"
             " |_/ \\________/ \\___|\n"
             "___\\_/________\\_/______" << endl;
+    cout << endl;
+
+    cout << "Please enter your maximum price: ";
+    cin >> price;
+    cout << "Please enter your desired frame: ";
+    cin >> frame;
+    cout << "Please enter your desired color: ";
+    cin >> color;
     cout << endl;
 
     parseFile("car_data.txt", price, frame, color);
