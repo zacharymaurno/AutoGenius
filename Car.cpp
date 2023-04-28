@@ -25,11 +25,11 @@ void Car::getTotalScore(string preferredFrame, string preferredColor, int maxPri
         totalScore+= 10;
     }
 
-    else if (price - maxPrice == 2500){
+    else if (price - maxPrice <= 2500){
         totalScore += 7.5;
     }
 
-    else if(price - maxPrice == 5000){
+    else if(price - maxPrice <= 5000){
         totalScore += 5;
     }
 
