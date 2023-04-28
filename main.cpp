@@ -27,6 +27,7 @@ int main() {
 
     cout << "Please enter your maximum price: ";
     cin >> price;
+    cout << "From the following list: SUV, Sedan, Truck, Hatchback, Convertible, Coupe, Minivan, Station Wagon" << endl;
     cout << "Please enter your desired frame: ";
     cin >> frame;
     cout << "Please enter your desired color: ";
